@@ -51,11 +51,16 @@ def randomdelete(input: list) -> list:
     return new
 
 def randominsertion(input: list) -> list:
-    idxs = [i for i, val in enumerate(input) if val == 0]
-    i = random.choice(idxs)
-    new = input.copy()
-    new[i] = 1
-    return new
+    to_add = 12 - len(input)
+    if to_add == 1:
+        v = random.choice([0, 1])
+        new = [v] + input.copy()
+        return new
+    else:
+        v1 = random.choice([0, 1])
+        v2 = random.choice([0, 1])
+        new = [v1, v2] + input.copy()
+        return new
 
 HAHN_TRANSFORMATION_COMBOS = [['reversal'], ['mirror'], ['randomphasic'], ['randomdelete'], ['reversal', 'mirror'], ['randomdelete', 'mirror'], 
                               ['reversal', 'randomphasic'], ['randominsertion', 'randomphasic'], ['randomdelete', 'reversal', 'randomphasic'], 
@@ -63,4 +68,5 @@ HAHN_TRANSFORMATION_COMBOS = [['reversal'], ['mirror'], ['randomphasic'], ['rand
 # print(reversal(mirror([0,0,1,1,0,1,0,0,1,0,0,1])))    
 # print(reversal(mirror([0,1,1,1,1,0,0,1,1,1,0,0])))
 # print(reversal(mirror([0,0,0,0,0,1,1,0,0,0,0,1]))) 
-# print(reversal(mirror([1,1,1,0,1,0,1,1,0,1,0,0])))       
+# print(reversal(mirror([1,1,1,0,1,0,1,1,0,1,0,0])))  
+# print(randominsertion([0,0,0,0,0,0,0,0,0,0,0]))     
