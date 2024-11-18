@@ -2,8 +2,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
 import random
+import pickle
 
-def img2array(array: np.array, num_circles=12, radius=0.5, img_size=(224, 224), edgecolor='black', facecolor='black') -> np.array:
+def array2img(array: list, num_circles=12, radius=0.5, img_size=(224, 224), edgecolor='black', facecolor='black') -> np.array:
     fig, ax = plt.subplots(figsize=(img_size[0] / 100, img_size[1] / 100), dpi=100)
     ax.set_aspect('equal')
     
@@ -65,6 +66,10 @@ def randominsertion(input: list) -> list:
 HAHN_TRANSFORMATION_COMBOS = [['reversal'], ['mirror'], ['randomphasic'], ['randomdelete'], ['reversal', 'mirror'], ['randomdelete', 'mirror'], 
                               ['reversal', 'randomphasic'], ['randominsertion', 'randomphasic'], ['randomdelete', 'reversal', 'randomphasic'], 
                               ['randomdelete', 'reversal', 'mirror'], ['randominsertion', 'reversal', 'randomphasic'], ['randominsertion', 'reversal', 'mirror']]
+
+def load_dict(path):
+    with open(path, 'rb') as f:
+        return pickle.load(f)
 # print(reversal(mirror([0,0,1,1,0,1,0,0,1,0,0,1])))    
 # print(reversal(mirror([0,1,1,1,1,0,0,1,1,1,0,0])))
 # print(reversal(mirror([0,0,0,0,0,1,1,0,0,0,0,1]))) 
