@@ -67,6 +67,10 @@ HAHN_TRANSFORMATION_COMBOS = [['reversal'], ['mirror'], ['randomphasic'], ['rand
                               ['reversal', 'randomphasic'], ['randominsertion', 'randomphasic'], ['randomdelete', 'reversal', 'randomphasic'], 
                               ['randomdelete', 'reversal', 'mirror'], ['randominsertion', 'reversal', 'randomphasic'], ['randominsertion', 'reversal', 'mirror']]
 
+EXPECTED_LEN_12 = 4094
+EXPECTED_LEN_11 = 2046
+EXPECTED_LEN_10 = 1022
+
 def load_dict(path):
     with open(path, 'rb') as f:
         return pickle.load(f)
