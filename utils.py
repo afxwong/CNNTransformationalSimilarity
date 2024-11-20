@@ -9,7 +9,7 @@ def array2img(array: list, num_circles=12, radius=0.5, img_size=(224, 224), edge
     ax.set_aspect('equal')
     
     for i in range(num_circles):
-        circle = plt.Circle((i * (2 * radius + 1), 0), radius, fill=array, edgecolor=edgecolor, facecolor=facecolor)
+        circle = plt.Circle((i * (2 * radius + 1), 0), radius, fill=array[i], edgecolor=edgecolor, facecolor=facecolor)
         ax.add_artist(circle)
 
     ax.set_xlim(-1, num_circles * (2 * radius + 1) - 1)
@@ -74,6 +74,9 @@ EXPECTED_LEN_10 = 1022
 def load_dict(path):
     with open(path, 'rb') as f:
         return pickle.load(f)
+    
+def random_binary_list():
+    return [random.choice([0, 1]) for _ in range(12)]
 # print(reversal(mirror([0,0,1,1,0,1,0,0,1,0,0,1])))    
 # print(reversal(mirror([0,1,1,1,1,0,0,1,1,1,0,0])))
 # print(reversal(mirror([0,0,0,0,0,1,1,0,0,0,0,1]))) 
